@@ -54,7 +54,11 @@
           </div>
         </div>
 
-        <form class="mt-8 flex flex-col gap-3 sm:flex-row" id="notify-form" novalidate>
+        <form action="https://formspree.io/f/mabcdxyz" method="POST" class="mt-8 flex flex-col gap-3 sm:flex-row">
+  <label class="sr-only" for="email">Email address</label>
+  <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" inputmode="email" class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base outline-none ring-amber-500/20 focus:border-amber-500 dark:border-neutral-700 dark:bg-neutral-950" />
+  <button type="submit" class="rounded-xl bg-amber-500 px-5 py-3 font-semibold text-neutral-900 shadow-lg shadow-amber-500/30 transition hover:translate-y-[-1px] hover:shadow-xl active:translate-y-0">Notify me</button>
+</form>
           <label class="sr-only" for="email">Email address</label>
           <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" inputmode="email" class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base outline-none ring-amber-500/20 focus:border-amber-500 dark:border-neutral-700 dark:bg-neutral-950" />
           <button type="submit" class="rounded-xl bg-amber-500 px-5 py-3 font-semibold text-neutral-900 shadow-lg shadow-amber-500/30 transition hover:translate-y-[-1px] hover:shadow-xl active:translate-y-0">Notify me</button>
@@ -73,74 +77,6 @@
       </section>
     </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function() {
-      try {
-        const key = 'flpdr_launch_target';
-        let target = localStorage.getItem(key);
-        if (!target) {
-          const d = new Date();
-          d.setDate(d.getDate() + 60);
-          target = d.toISOString();
-          localStorage.setItem(key, target);
-        }
-        const end = new Date(target);
-        const el = document.getElementById('countdown');
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        const tick = () => {
-          const now = new Date();
-          const diff = end - now;
-          if (diff <= 0) {
-            el.hidden = true;
-            clearInterval(timer);
-            return;
-          }
-          el.hidden = false;
-          const s = Math.floor(diff / 1000);
-          const d = Math.floor(s / 86400);
-          const h = Math.floor((s % 86400) / 3600);
-          const m = Math.floor((s % 3600) / 60);
-          const sec = s % 60;
-          daysEl.textContent = String(d).padStart(2, '0');
-          hoursEl.textContent = String(h).padStart(2, '0');
-          minutesEl.textContent = String(m).padStart(2, '0');
-          secondsEl.textContent = String(sec).padStart(2, '0');
-        };
-        tick();
-        const timer = setInterval(tick, 1000);
-      } catch (e) {}
-    })();
-
-    document.getElementById('notify-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const input = document.getElementById('email');
-      const help = document.getElementById('form-help');
-      const email = input.value.trim();
-      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!valid) {
-        help.textContent = 'Please enter a valid email address.';
-        help.classList.remove('text-neutral-500', 'dark:text-neutral-400');
-        help.classList.add('text-red-600');
-        input.focus();
-        return;
-      }
-      try {
-        const list = JSON.parse(localStorage.getItem('flpdr_waitlist') || '[]');
-        if (!list.includes(email)) list.push(email);
-        localStorage.setItem('flpdr_waitlist', JSON.stringify(list));
-      } catch (e) {}
-      const subject = encodeURIComponent('FLPDR Launch — Notify me');
-      const body = encodeURIComponent('Please add me to the launch list. My email: ' + email);
-      window.location.href = 'mailto:flpdr24@gmail.com?subject=' + subject + '&body=' + body;
-      help.textContent = 'Thanks! We\'ll be in touch.';
-      help.classList.remove('text-red-600');
-      help.classList.add('text-neutral-500');
-      input.value = '';
-    });
-  </script>
+ 
 </body>
 </html>
