@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Light Pet Disaster Relief — Coming Soon</title>
+  <meta name="description" content="First Light Pet Disaster Relief (FLPDR) — official site is coming soon. Stay in the loop." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="first_light_logo_Paw (1).png">
+  <meta property="og:title" content="First Light Pet Disaster Relief — Coming Soon" />
+  <meta property="og:description" content="FLPDR is getting ready to launch. Be the first to know." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root { color-scheme: light dark; }
+    html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+  <main class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <div class="h-[36rem] w-[36rem] rounded-full blur-3xl opacity-20 bg-gradient-to-br from-amber-300 to-rose-300 dark:from-amber-500/30 dark:to-fuchsia-500/30"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-3xl px-6 py-16 sm:py-24">
+      <div class="flex flex-col items-center text-center">
+        <img src="first_light_logo_Paw (1).png" alt="First Light Pet Disaster Relief logo" class="w-32 h-auto mb-6" />
+        <h1 class="text-3xl font-extrabold leading-tight sm:text-4xl">First Light Pet Disaster Relief</h1>
+        <p class="mt-2 text-sm uppercase tracking-widest text-neutral-500 dark:text-neutral-400">FLPDR</p>
+      </div>
+
+      <section class="mt-10 rounded-2xl border border-neutral-200/70 bg-white/80 p-6 shadow-xl backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/60">
+        <h2 class="text-3xl font-extrabold sm:text-4xl">Lighting the way for pets in disasters</h2>
+        <p class="mt-3 max-w-prose text-neutral-600 dark:text-neutral-300">Our full site is on the way. We’re building resources, training, and rapid‑response support to keep pets and their people safe before, during, and after disasters. Want a heads‑up when we launch?</p>
+
+        <div class="mt-6 grid grid-cols-4 gap-3 sm:gap-4" id="countdown" aria-label="Countdown to site launch" hidden>
+          <div class="rounded-xl border border-neutral-200 bg-white p-4 text-center dark:border-neutral-800 dark:bg-neutral-950">
+            <div class="text-3xl font-bold" id="days">00</div>
+            <div class="text-xs uppercase tracking-widest text-neutral-500">Days</div>
+          </div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-4 text-center dark:border-neutral-800 dark:bg-neutral-950">
+            <div class="text-3xl font-bold" id="hours">00</div>
+            <div class="text-xs uppercase tracking-widest text-neutral-500">Hours</div>
+          </div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-4 text-center dark:border-neutral-800 dark:bg-neutral-950">
+            <div class="text-3xl font-bold" id="minutes">00</div>
+            <div class="text-xs uppercase tracking-widest text-neutral-500">Minutes</div>
+          </div>
+          <div class="rounded-xl border border-neutral-200 bg-white p-4 text-center dark:border-neutral-800 dark:bg-neutral-950">
+            <div class="text-3xl font-bold" id="seconds">00</div>
+            <div class="text-xs uppercase tracking-widest text-neutral-500">Seconds</div>
+          </div>
+        </div>
+
+        <form class="mt-8 flex flex-col gap-3 sm:flex-row" id="notify-form" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" inputmode="email" class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base outline-none ring-amber-500/20 focus:border-amber-500 dark:border-neutral-700 dark:bg-neutral-950" />
+          <button type="submit" class="rounded-xl bg-amber-500 px-5 py-3 font-semibold text-neutral-900 shadow-lg shadow-amber-500/30 transition hover:translate-y-[-1px] hover:shadow-xl active:translate-y-0">Notify me</button>
+        </form>
+        <p id="form-help" class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">We’ll only email about the launch. You can unsubscribe any time. <a href="#privacy" class="underline underline-offset-4">Privacy</a></p>
+      </section>
+
+      <footer class="mt-8 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+        <p class="text-sm text-neutral-500">© <span id="year"></span> First Light Pet Disaster Relief. All rights reserved.</p>
+      </footer>
+    </div>
+  
+      <section id="privacy" class="mt-10 rounded-2xl border border-neutral-200/70 bg-white/80 p-6 shadow-xl backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/60">
+        <h3 class="text-xl font-semibold">Privacy</h3>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">If you submit your email address, we will use it only to notify you about our launch and FLPDR updates. You can unsubscribe at any time by replying to any message with “unsubscribe.” We do not sell or share your information.</p>
+      </section>
+    </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function() {
+      try {
+        const key = 'flpdr_launch_target';
+        let target = localStorage.getItem(key);
+        if (!target) {
+          const d = new Date();
+          d.setDate(d.getDate() + 60);
+          target = d.toISOString();
+          localStorage.setItem(key, target);
+        }
+        const end = new Date(target);
+        const el = document.getElementById('countdown');
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const tick = () => {
+          const now = new Date();
+          const diff = end - now;
+          if (diff <= 0) {
+            el.hidden = true;
+            clearInterval(timer);
+            return;
+          }
+          el.hidden = false;
+          const s = Math.floor(diff / 1000);
+          const d = Math.floor(s / 86400);
+          const h = Math.floor((s % 86400) / 3600);
+          const m = Math.floor((s % 3600) / 60);
+          const sec = s % 60;
+          daysEl.textContent = String(d).padStart(2, '0');
+          hoursEl.textContent = String(h).padStart(2, '0');
+          minutesEl.textContent = String(m).padStart(2, '0');
+          secondsEl.textContent = String(sec).padStart(2, '0');
+        };
+        tick();
+        const timer = setInterval(tick, 1000);
+      } catch (e) {}
+    })();
+
+    document.getElementById('notify-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = document.getElementById('email');
+      const help = document.getElementById('form-help');
+      const email = input.value.trim();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!valid) {
+        help.textContent = 'Please enter a valid email address.';
+        help.classList.remove('text-neutral-500', 'dark:text-neutral-400');
+        help.classList.add('text-red-600');
+        input.focus();
+        return;
+      }
+      try {
+        const list = JSON.parse(localStorage.getItem('flpdr_waitlist') || '[]');
+        if (!list.includes(email)) list.push(email);
+        localStorage.setItem('flpdr_waitlist', JSON.stringify(list));
+      } catch (e) {}
+      const subject = encodeURIComponent('FLPDR Launch — Notify me');
+      const body = encodeURIComponent('Please add me to the launch list. My email: ' + email);
+      window.location.href = 'mailto:flpdr24@gmail.com?subject=' + subject + '&body=' + body;
+      help.textContent = 'Thanks! We\'ll be in touch.';
+      help.classList.remove('text-red-600');
+      help.classList.add('text-neutral-500');
+      input.value = '';
+    });
+  </script>
+</body>
+</html>
