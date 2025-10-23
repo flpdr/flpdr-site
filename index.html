@@ -72,6 +72,43 @@
         <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">If you submit your email address, we will use it only to notify you about our launch and FLPDR updates. You can unsubscribe at any time by replying to any message with “unsubscribe.” We do not sell or share your information.</p>
       </section>
     </main>
- 
+
+  <script>
+  // Show the current year in the footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fixed public launch date: December 25 2025 at midnight (Central Time)
+  const end = new Date("2025-12-25T00:00:00-05:00");
+
+  // Countdown logic
+  const el = document.getElementById('countdown');
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = end - now;
+    if (diff <= 0) {
+      el.hidden = true;
+      clearInterval(timer);
+      return;
+    }
+    const s = Math.floor(diff / 1000);
+    const d = Math.floor(s / 86400);
+    const h = Math.floor((s % 86400) / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    daysEl.textContent = String(d).padStart(2, '0');
+    hoursEl.textContent = String(h).padStart(2, '0');
+    minutesEl.textContent = String(m).padStart(2, '0');
+    secondsEl.textContent = String(sec).padStart(2, '0');
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
